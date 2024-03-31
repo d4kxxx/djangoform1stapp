@@ -1,0 +1,52 @@
+{% extends 'formapp/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'formapp/css/deco.css' %}">
+{% endblock %}
+{% block content %}
+
+
+<div class="container mt-4">
+    <table class="table table-hover table-striped table-sm p-2"><tr>
+        <div class="text-center">
+            <p class="fs-1">Customers Details</p>
+        </div>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+        
+            <td>{{item.name}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.address}}</td>
+            <td><div class="text-center">
+                <!-- <a class="btn btn-info" href="{% url 'delete-event' item.id %}">Delete</a> -->
+            </div></td>
+        <td><a class="btn" href="{% url 'delete-event' item.id %}"><i class="fa-solid fa-trash"></i></a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

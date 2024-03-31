@@ -1,0 +1,23 @@
+{% extends 'formapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-3 " >
+    <div class="jumbotron jumbotron-fluid">
+        <div class="text-center">
+            <p class="text-uppercase fs-1">Customers Infos</p>
+        </div>
+        <form action="" method="POST" class="form_group">
+            {% csrf_token %}
+            {{userform|crispy}}
+            <br>
+            <input class="btn btn-success" type="submit" value="Save" >
+        </form>
+            <div class="text-center">
+                    <a class="btn btn-info" href="{% url 'details' %}">Show Entries</a>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}
+
